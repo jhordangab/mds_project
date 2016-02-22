@@ -40,8 +40,38 @@ public class Main {
                 }
             }
         
-            if(helper.isLogado()){
-                UsuarioHelper.listar();
+            System.out.println("");
+            System.out.println("Bem vindo " + helper.getUsuarioLogado().getNome() + "!");
+            
+            while(helper.isLogado()){
+                
+                System.out.println("Digite a opção desejada: ");
+                
+                System.out.println("1 - Cadastrar Usuários");
+                System.out.println("2 - Listar Usuários");
+
+                int opcao = scanner.nextInt();
+                
+                switch(opcao){
+                    case 1:
+                        
+                        System.out.println("Digite o nome do usuário: ");
+                        String us_cadastro = scanner.next();
+
+                        System.out.println("Digite a senha do usuário: ");
+                        String ps_cadastro = scanner.next();
+                        
+                        System.out.println("Digite o tipo do usuário: ");
+                        int ty_cadastro = scanner.nextInt();
+                        
+                        UsuarioHelper.cadastrar(us_cadastro, ps_cadastro, ty_cadastro);
+                        
+                        break;
+                    case 2:
+                        UsuarioHelper.listar();
+                        break;
+                }
+                
                 break;
             }
         }
