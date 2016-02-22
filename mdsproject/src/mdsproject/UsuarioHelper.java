@@ -26,18 +26,21 @@ public class UsuarioHelper {
         file.close();
     }
     
-    public static void listar() throws FileNotFoundException, Base64DecodingException
+    public static String listar() throws FileNotFoundException, Base64DecodingException
     { 
+        String lista = "Lista de Usuários cadastrados no sistema:";
+        
         try { 
             FileReader file = new FileReader(filename);
             BufferedReader lerArq = new BufferedReader(file); 
             String linha = lerArq.readLine(); 
+            lista += "\n ";
             
             while (linha != null) { 
                 String dados = new String(Base64.decode(linha), "UTF-8"); 
                 String nome = dados.substring(0, dados.indexOf("[:]"));
                 String tipo = (dados.substring(dados.indexOf("[::]") + 4, dados.indexOf("[:::]")).equals("1")) ? "Aluno" : "Professor";
-                System.out.printf("%s\n", "Nome: " + nome + " - " + tipo); 
+                lista += "\n Nome: " + nome + " - " + tipo; 
                 linha = lerArq.readLine();
             } 
             file.close(); 
@@ -45,6 +48,8 @@ public class UsuarioHelper {
         catch (IOException e) { 
             System.err.printf("Erro na leitura dos dados: %s.\n", e.getMessage()); 
         }
+        
+        return lista;
     }
     
     public static String getSenha(String username) throws FileNotFoundException, Base64DecodingException
