@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Users/jhordangabriel/NetBeansProjects/mdsproject/src/mdsproject/GravarArquivo.java</file>
+            <file>file:/Users/jhordangabriel/NetBeansProjects/mdsproject/src/mdsproject/Aluno.java</file>
+            <file>file:/Users/jhordangabriel/NetBeansProjects/mdsproject/src/mdsproject/Record.java</file>
+            <file>file:/Users/jhordangabriel/NetBeansProjects/mdsproject/src/mdsproject/ManipuladorArquivos.java</file>
+            <file>file:/Users/jhordangabriel/NetBeansProjects/mdsproject/src/mdsproject/DisciplinaDb.java</file>
             <file>file:/Users/jhordangabriel/NetBeansProjects/mdsproject/src/mdsproject/UsuarioDb.java</file>
             <file>file:/Users/jhordangabriel/NetBeansProjects/mdsproject/src/mdsproject/Main.java</file>
-            <file>file:/Users/jhordangabriel/NetBeansProjects/mdsproject/src/mdsproject/LoginForm.java</file>
         </group>
     </open-files>
 </project-private>
