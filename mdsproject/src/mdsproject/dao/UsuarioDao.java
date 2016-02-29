@@ -47,7 +47,7 @@ public class UsuarioDao {
             while (linha != null) { 
                 String dados = new String(Base64.decode(linha),FORMAT_STRING); 
                 String nome = dados.substring(0, dados.indexOf("[:]"));
-                String tipo = (dados.substring(dados.indexOf("[::]") + 4, dados.indexOf("[:::]")).equals("1")) ? "Aluno" : "Professor";
+                String tipo = (dados.substring(dados.indexOf("[::]") + 4, dados.indexOf("[:::]")).equals("0")) ? "Aluno" : "Professor";
                 lista += "\n Nome: " + nome + " - " + tipo; 
                 linha = lerArq.readLine();
             } 
@@ -74,6 +74,33 @@ public class UsuarioDao {
                 if(nome.equals(username)){
                     senha = dados.substring(dados.indexOf("[:]") + 3, dados.indexOf("[::]"));
                     return senha;
+                }
+                
+                linha = lerArq.readLine();
+            } 
+            file.close(); 
+        } 
+        catch (IOException e) { 
+            System.err.printf(MESSAGE_ERROR, e.getMessage()); 
+        }
+        
+        return "";
+    }
+    
+    public static String getType(String username) throws FileNotFoundException, Base64DecodingException
+    { 
+        try { 
+            FileReader file = new FileReader(FILENAME);
+            BufferedReader lerArq = new BufferedReader(file); 
+            String linha = lerArq.readLine(); 
+            String type;
+            
+            while (linha != null) { 
+                String dados = new String(Base64.decode(linha), FORMAT_STRING); 
+                String nome = dados.substring(0, dados.indexOf("[:]"));
+                if(nome.equals(username)){
+                    type = dados.substring(dados.indexOf("[::]") + 4, dados.indexOf("[:::]"));
+                    return type;
                 }
                 
                 linha = lerArq.readLine();

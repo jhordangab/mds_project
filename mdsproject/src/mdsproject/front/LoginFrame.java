@@ -122,11 +122,22 @@ public class LoginFrame extends javax.swing.JFrame {
             try {
                 if(login.autentica(usuario, senha)){
                     this.setVisible(false);
-                    java.awt.EventQueue.invokeLater(new Runnable() {
-                        public void run() {
-                            new PrincipalFrame().setVisible(true);
-                        }
-                    });
+                    int type = login.getType();
+                    if(type == 0){
+                        java.awt.EventQueue.invokeLater(new Runnable() {
+                            public void run() {
+                                new PrincipalFrameAluno().setVisible(true);
+                            }
+                        });
+                    }else{
+                        java.awt.EventQueue.invokeLater(new Runnable() {
+                            public void run() {
+                                new PrincipalFrameProfessor().setVisible(true);
+                            }
+                        });
+                    }
+                    
+                    
 
                 }else{
                     JOptionPane.showMessageDialog(null, "Dados não encontrados no sistema. Verifique.");

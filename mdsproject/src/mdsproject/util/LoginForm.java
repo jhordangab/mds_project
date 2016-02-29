@@ -13,6 +13,7 @@ public class LoginForm {
     
     boolean login = false;
     Usuario usuarioLogado;
+    private int type;
     
     public LoginForm(){
     }
@@ -24,6 +25,7 @@ public class LoginForm {
                 this.usuarioLogado = new Usuario();
                 this.usuarioLogado.setNome(username);
                 this.usuarioLogado.setSenha(password);
+                this.setType((UsuarioDao.getType(username).equals("1")) ? 1 : 0);
                 this.login = true;
             }
         }
@@ -33,6 +35,20 @@ public class LoginForm {
     
     public Usuario getUsuarioLogado(){
         return this.usuarioLogado;
+    }
+
+    /**
+     * @return the type
+     */
+    public int getType() {
+        return type;
+    }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(int type) {
+        this.type = type;
     }
     
 }
