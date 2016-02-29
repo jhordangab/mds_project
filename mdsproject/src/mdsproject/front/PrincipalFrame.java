@@ -67,7 +67,8 @@ public class PrincipalFrame extends javax.swing.JFrame {
         usuariosNav = new javax.swing.JMenu();
         cadastrarUsuaNav = new javax.swing.JMenuItem();
         listarUsuaNav = new javax.swing.JMenuItem();
-        sairNav = new javax.swing.JMenu();
+        perfilNav = new javax.swing.JMenu();
+        sairNav = new javax.swing.JMenuItem();
 
         jMenuItem6.setText("jMenuItem6");
 
@@ -254,8 +255,17 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(controleNav);
 
+        perfilNav.setText("Perfil");
+
         sairNav.setText("Sair");
-        jMenuBar1.add(sairNav);
+        sairNav.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairNavActionPerformed(evt);
+            }
+        });
+        perfilNav.add(sairNav);
+
+        jMenuBar1.add(perfilNav);
 
         setJMenuBar(jMenuBar1);
 
@@ -332,6 +342,16 @@ public class PrincipalFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_salvarUsuaBtnActionPerformed
 
+    private void sairNavActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairNavActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new LoginFrame().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_sairNavActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel SenhaUsuaLbl;
@@ -361,8 +381,9 @@ public class PrincipalFrame extends javax.swing.JFrame {
     private javax.swing.JPanel panelCadastrar;
     private javax.swing.JPanel panelContent;
     private javax.swing.JPanel panelListarUsuarios;
+    private javax.swing.JMenu perfilNav;
     private javax.swing.JMenuItem removerNav;
-    private javax.swing.JMenu sairNav;
+    private javax.swing.JMenuItem sairNav;
     private javax.swing.JButton salvarUsuaBtn;
     private javax.swing.JPasswordField senhaUsuaPf;
     private javax.swing.JComboBox<String> tipoUsuaCb;

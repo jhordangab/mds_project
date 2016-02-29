@@ -38,12 +38,11 @@ public class UsuarioDao {
     
     public static String listar() throws FileNotFoundException, Base64DecodingException
     { 
-        String lista = MESSAGE_LIST;
+        String lista = "";
         try { 
             FileReader file = new FileReader(FILENAME);
             BufferedReader lerArq = new BufferedReader(file); 
             String linha = lerArq.readLine(); 
-            lista += "\n ";
             
             while (linha != null) { 
                 String dados = new String(Base64.decode(linha),FORMAT_STRING); 
