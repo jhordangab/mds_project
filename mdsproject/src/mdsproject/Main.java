@@ -3,7 +3,7 @@ package mdsproject;
 import com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
+import mdsproject.front.PrincipalFrame;
 
 /**
  *
@@ -12,15 +12,10 @@ import java.util.Scanner;
 public class Main {
         
     public static void main(String[] args) throws IOException, FileNotFoundException, Base64DecodingException{
-        
-        Helper helper = new Helper();
-        
-        if(!helper.isLogado()){
-            java.awt.EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    new Login().setVisible(true);
-                }
-            });
-        }
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PrincipalFrame().setVisible(true);
+            }
+        });
     }
 }
