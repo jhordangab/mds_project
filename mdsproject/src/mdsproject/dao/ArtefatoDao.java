@@ -20,6 +20,8 @@ public class ArtefatoDao {
     static final String FOLDER = "Artefatos";
 
     static final String FORMAT_STRING = "UTF-8";
+    
+    static final String ignoreFile = ".DS_Store";
 
     public ArtefatoDao() {
     }
@@ -39,7 +41,9 @@ public class ArtefatoDao {
 
         for (int i = 0; i < list.length; i++) {
             File arq = list[i];
-            lista += "\n Nome: " + arq.getName();
+            if(!arq.getName().equals(ignoreFile)){
+                lista += "\n Nome: " + arq.getName() + ".txt";
+            }
         }
         
         return lista;
@@ -55,7 +59,29 @@ public class ArtefatoDao {
         for (int i = 0; i < list.length; i++) {
             File arq = list[i];
             if(arq.getName().toLowerCase().contains(string.toLowerCase())){
-                lista += "\n Nome: " + arq.getName() + ".txt";
+                if(!arq.getName().equals(ignoreFile)){
+                    lista += "\n Nome: " + arq.getName() + ".txt";
+                }
+            }
+        }
+        
+        return lista;
+        
+    }
+    
+    public static String excluir(String string){
+        
+        String lista = "";
+        
+        File diretorio = new File(FOLDER);
+        File list[] = diretorio.listFiles();
+
+        for (int i = 0; i < list.length; i++) {
+            File arq = list[i];
+            if(arq.getName().toLowerCase().contains(string.toLowerCase())){
+                if(!arq.getName().equals(ignoreFile)){
+                    arq.delete();
+                }
             }
         }
         

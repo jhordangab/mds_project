@@ -56,6 +56,16 @@ public class PrincipalFrameProfessor extends javax.swing.JFrame {
         inserirArtBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
+        panelExcluirArtefatos = new javax.swing.JPanel();
+        labelListaArtefatos1 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        excluirArtTf = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        exclusaoTa = new javax.swing.JTextArea();
+        jSeparator7 = new javax.swing.JSeparator();
+        jLabel7 = new javax.swing.JLabel();
         panelListarArtefatos = new javax.swing.JPanel();
         labelListaArtefatos = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
@@ -84,6 +94,7 @@ public class PrincipalFrameProfessor extends javax.swing.JFrame {
         arquivosNav = new javax.swing.JMenu();
         cadastrarNav = new javax.swing.JMenuItem();
         listarNav = new javax.swing.JMenuItem();
+        excluirArtNav = new javax.swing.JMenuItem();
         usuariosNav = new javax.swing.JMenu();
         cadastrarUsuaNav = new javax.swing.JMenuItem();
         listarUsuaNav = new javax.swing.JMenuItem();
@@ -217,6 +228,77 @@ public class PrincipalFrameProfessor extends javax.swing.JFrame {
 
         panelContent.add(panelInserirArtefato, "card2");
 
+        panelExcluirArtefatos.setBackground(new java.awt.Color(255, 255, 255));
+
+        labelListaArtefatos1.setText("Exclusão de Artefatos");
+
+        jLabel6.setText("Nome do Artefato");
+
+        excluirArtTf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                excluirArtTfKeyPressed(evt);
+            }
+        });
+
+        jButton1.setText("Excluir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        exclusaoTa.setColumns(20);
+        exclusaoTa.setRows(5);
+        jScrollPane5.setViewportView(exclusaoTa);
+
+        jLabel7.setText("Listagem de Artefatos Localizados");
+
+        javax.swing.GroupLayout panelExcluirArtefatosLayout = new javax.swing.GroupLayout(panelExcluirArtefatos);
+        panelExcluirArtefatos.setLayout(panelExcluirArtefatosLayout);
+        panelExcluirArtefatosLayout.setHorizontalGroup(
+            panelExcluirArtefatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelExcluirArtefatosLayout.createSequentialGroup()
+                .addGroup(panelExcluirArtefatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelExcluirArtefatosLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(labelListaArtefatos1))
+                    .addGroup(panelExcluirArtefatosLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(panelExcluirArtefatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelExcluirArtefatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jButton1)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                                .addComponent(excluirArtTf, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane5))
+                            .addComponent(jLabel7))))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        panelExcluirArtefatosLayout.setVerticalGroup(
+            panelExcluirArtefatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelExcluirArtefatosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelListaArtefatos1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(excluirArtTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18))
+        );
+
+        panelContent.add(panelExcluirArtefatos, "card2");
+
         panelListarArtefatos.setBackground(new java.awt.Color(255, 255, 255));
 
         labelListaArtefatos.setText("Lista de Artefatos");
@@ -252,8 +334,6 @@ public class PrincipalFrameProfessor extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
-
-        labelListaArtefatos.getAccessibleContext().setAccessibleName("Lista de Artefatos");
 
         panelContent.add(panelListarArtefatos, "card2");
 
@@ -344,7 +424,7 @@ public class PrincipalFrameProfessor extends javax.swing.JFrame {
 
         panelListarUsuarios.setBackground(new java.awt.Color(255, 255, 255));
 
-        labelListaUsuarios.setText("Lista de Usuários");
+        labelListaUsuarios.setText("Exclusão de Artefatos");
 
         listaUsuaTa.setColumns(20);
         listaUsuaTa.setRows(5);
@@ -357,13 +437,13 @@ public class PrincipalFrameProfessor extends javax.swing.JFrame {
             .addGroup(panelListarUsuariosLayout.createSequentialGroup()
                 .addGroup(panelListarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelListarUsuariosLayout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(labelListaUsuarios))
-                    .addGroup(panelListarUsuariosLayout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addGroup(panelListarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelListarUsuariosLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(labelListaUsuarios)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         panelListarUsuariosLayout.setVerticalGroup(
@@ -413,6 +493,14 @@ public class PrincipalFrameProfessor extends javax.swing.JFrame {
             }
         });
         arquivosNav.add(listarNav);
+
+        excluirArtNav.setText("Excluir");
+        excluirArtNav.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirArtNavActionPerformed(evt);
+            }
+        });
+        arquivosNav.add(excluirArtNav);
 
         controleNav.add(arquivosNav);
 
@@ -599,6 +687,40 @@ public class PrincipalFrameProfessor extends javax.swing.JFrame {
         resultBuscaTa.setText(lista);
     }//GEN-LAST:event_buscarBtnActionPerformed
 
+    private void excluirArtNavActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirArtNavActionPerformed
+        // TODO add your handling code here:
+        panelContent.removeAll();
+        panelContent.repaint();
+        panelContent.revalidate();
+        panelContent.add(panelExcluirArtefatos);
+        panelContent.repaint();
+        panelContent.revalidate();
+    }//GEN-LAST:event_excluirArtNavActionPerformed
+
+    private void excluirArtTfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_excluirArtTfKeyPressed
+        // TODO add your handling code here:
+        String txt = excluirArtTf.getText();
+        if(!txt.isEmpty()){
+            String lista = ArtefatoDao.localizar(txt);
+            exclusaoTa.setText(lista);
+        }else{
+            exclusaoTa.setText("");
+        }
+    }//GEN-LAST:event_excluirArtTfKeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        String txt = excluirArtTf.getText();
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog (null, "Confirma a exclusão de todos os artefatos localizados?","Warning",dialogButton);
+        if(result == JOptionPane.YES_OPTION){
+            ArtefatoDao.excluir(txt);
+            excluirArtTf.setText("");
+            exclusaoTa.setText("");
+            JOptionPane.showMessageDialog(null, "Artefatos excluídos com sucesso!");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel SenhaUsuaLbl;
@@ -611,12 +733,18 @@ public class PrincipalFrameProfessor extends javax.swing.JFrame {
     private javax.swing.JMenuItem cadastrarUsuaNav;
     private javax.swing.JTextArea conteudoArtTa;
     private javax.swing.JMenu controleNav;
+    private javax.swing.JMenuItem excluirArtNav;
+    private javax.swing.JTextField excluirArtTf;
+    private javax.swing.JTextArea exclusaoTa;
     private javax.swing.JButton inserirArtBtn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
@@ -624,13 +752,17 @@ public class PrincipalFrameProfessor extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel labelCadastroUsuarios;
     private javax.swing.JLabel labelListaArtefatos;
+    private javax.swing.JLabel labelListaArtefatos1;
     private javax.swing.JLabel labelListaUsuarios;
     private javax.swing.JButton limparUsuaBtn;
     private javax.swing.JTextArea listaArtTa;
@@ -644,6 +776,7 @@ public class PrincipalFrameProfessor extends javax.swing.JFrame {
     private javax.swing.JPanel panelBuscar;
     private javax.swing.JPanel panelCadastrar;
     private javax.swing.JPanel panelContent;
+    private javax.swing.JPanel panelExcluirArtefatos;
     private javax.swing.JPanel panelInserirArtefato;
     private javax.swing.JPanel panelListarArtefatos;
     private javax.swing.JPanel panelListarUsuarios;
